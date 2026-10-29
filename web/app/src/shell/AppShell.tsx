@@ -47,8 +47,8 @@ export function AppShell() {
   if (mobile) {
     banner = (
       <Banner
-        title="FreeWorld is better in the app."
-        detail="Phone browsers can’t run the FreeWorld extension. The Android app has everything."
+        title="Silverfy is better in the app."
+        detail="Phone browsers can’t run the Silverfy extension. The Android app has everything."
         action={
           <a className={bannerButtonClass} href={config.androidAppUrl} target="_blank" rel="noreferrer">
             Get the App
@@ -59,7 +59,7 @@ export function AppShell() {
   } else if (extension.state === 'missing' && !bannerDismissed) {
     banner = (
       <Banner
-        title="Play YouTube Music with the FreeWorld extension."
+        title="Play YouTube Music with the Silverfy extension."
         detail="Playback, YouTube Music sign-in, Spotify and Discord need the extension. Addons and lyrics work without it."
         action={
           <PrefetchLink className={bannerButtonClass} to="/extension">

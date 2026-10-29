@@ -48,7 +48,7 @@ import com.music.bitchord.data.model.UserPlaylist
 import com.music.bitchord.data.model.artworkAt
 import com.music.bitchord.download.DownloadState
 import com.music.bitchord.download.Downloads
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import java.util.Locale
 
 /**
@@ -213,7 +213,7 @@ fun BrowseActionsSheet(
             }
 
             onPlay?.let { ActionRow(Icons.Rounded.PlayArrow, stringResource(R.string.play), onClick = it) }
-            onShuffle?.let { ActionRow(BitChordIcons.Shuffle, stringResource(R.string.shuffle), onClick = it) }
+            onShuffle?.let { ActionRow(SilverfyIcons.Shuffle, stringResource(R.string.shuffle), onClick = it) }
             ActionRow(
                 Icons.AutoMirrored.Rounded.PlaylistPlay,
                 stringResource(R.string.play_next),
@@ -252,9 +252,9 @@ fun BrowseActionsSheet(
                 val downloaded = !waiting && ids.isNotEmpty() && ids.all { it in saved }
                 ActionRow(
                     icon = when {
-                        waiting -> BitChordIcons.Clock
-                        downloaded -> BitChordIcons.Check
-                        else -> BitChordIcons.Download
+                        waiting -> SilverfyIcons.Clock
+                        downloaded -> SilverfyIcons.Check
+                        else -> SilverfyIcons.Download
                     },
                     label = stringResource(R.string.download_all),
                     value = when {
@@ -267,7 +267,7 @@ fun BrowseActionsSheet(
             }
             onOpen?.let {
                 ActionRow(
-                    BitChordIcons.ChevronRight,
+                    SilverfyIcons.ChevronRight,
                     target.type.localizedOpenLabel(),
                     onClick = it,
                 )
@@ -277,7 +277,7 @@ fun BrowseActionsSheet(
             }
             onTogglePin?.let {
                 ActionRow(
-                    BitChordIcons.Pin,
+                    SilverfyIcons.Pin,
                     stringResource(if (isPinned) R.string.unpin else R.string.pin),
                     onClick = it,
                 )

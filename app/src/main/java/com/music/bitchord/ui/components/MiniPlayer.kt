@@ -21,8 +21,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Pause
-import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -55,7 +53,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.music.bitchord.data.model.ROW_ART_PX
 import com.music.bitchord.data.model.Song
-import com.music.bitchord.ui.theme.LocalFreeWorldPalette
+import com.music.bitchord.ui.theme.LocalSilverfyPalette
 import com.music.bitchord.data.model.artworkAt
 import com.music.bitchord.data.settings.AppSettings
 import com.music.bitchord.sharedui.resources.Res as SharedRes
@@ -395,7 +393,7 @@ fun MiniPlayer(
                     )
                 },
             )
-            .border(0.5.dp, LocalFreeWorldPalette.current?.divider ?: Color.White.copy(alpha = 0.10f), shape)
+            .border(0.5.dp, LocalSilverfyPalette.current?.divider ?: Color.White.copy(alpha = 0.10f), shape)
             // Deliberately silent: the whole bar is the target, so it catches
             // stray taps meant for the page behind it, and the sheet rising is
             // its own confirmation. The glyphs on it still buzz.
@@ -451,10 +449,10 @@ fun MiniPlayer(
                     },
                     modifier = Modifier.size(GLYPH_SLOT),
                 ) {
-                    Icon(
-                        imageVector = if (isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow,
+                    SilverfyPlayMark(
+                        isPlaying = isPlaying,
+                        color = MaterialTheme.colorScheme.onBackground,
                         contentDescription = stringResource(if (isPlaying) R.string.pause else R.string.play),
-                        tint = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier.size(GLYPH_SIZE),
                     )
                 }

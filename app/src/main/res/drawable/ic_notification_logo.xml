@@ -1,16 +1,18 @@
 <!--
-  Status-bar / notification variant of the FreeWorld mark (assets/LogoTransparent.svg).
-
-  Notification small icons are drawn as a silhouette: the system throws away
-  every colour and keeps only the alpha channel, so the fill has to be opaque
-  white, sized to the 22x22 content box Android expects inside a 24x24 canvas.
+  Status-bar / notification variant of the Silverfy mark: the headphones and
+  waveform alone. The system keeps only the alpha channel, so the fill is
+  opaque white, sized to the 22x22 content box inside a 24x24 canvas.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M1,12A11,11 0 1,1 23,12A11,11 0 1,1 1,12ZM3.839,12A8.161,8.161 0 1,0 20.161,12A8.161,8.161 0 1,0 3.839,12ZM6.323,9.871A1.419,1.419 0 0,1 9.161,9.871L9.161,14.129A1.419,1.419 0 0,1 6.323,14.129ZM10.581,7.742A1.419,1.419 0 0,1 13.419,7.742L13.419,16.258A1.419,1.419 0 0,1 10.581,16.258ZM14.839,9.161A1.419,1.419 0 0,1 17.677,9.161L17.677,14.839A1.419,1.419 0 0,1 14.839,14.839Z"/>
+    <group android:translateX="1" android:translateY="2.32" android:scaleX="0.101852" android:scaleY="0.101852">
+    <group android:translateX="-412" android:translateY="-364">
+        <path android:strokeColor="#FFFFFFFF" android:strokeWidth="16" android:pathData="M434 480 V450 A86 86 0 0 1 606 450 V480"/>
+        <path android:fillColor="#FFFFFFFF" android:pathData="M433.5 473 H433.5 A21.5 21.5 0 0 1 455 494.5 V532.5 A21.5 21.5 0 0 1 433.5 554 H433.5 A21.5 21.5 0 0 1 412 532.5 V494.5 A21.5 21.5 0 0 1 433.5 473 ZM606.5 473 H606.5 A21.5 21.5 0 0 1 628 494.5 V532.5 A21.5 21.5 0 0 1 606.5 554 H606.5 A21.5 21.5 0 0 1 585 532.5 V494.5 A21.5 21.5 0 0 1 606.5 473 ZM478 489 H478 A5 5 0 0 1 483 494 V513 A5 5 0 0 1 478 518 H478 A5 5 0 0 1 473 513 V494 A5 5 0 0 1 478 489 ZM498 478 H498 A5 5 0 0 1 503 483 V523 A5 5 0 0 1 498 528 H498 A5 5 0 0 1 493 523 V483 A5 5 0 0 1 498 478 ZM520 465 H520 A5 5 0 0 1 525 470 V536 A5 5 0 0 1 520 541 H520 A5 5 0 0 1 515 536 V470 A5 5 0 0 1 520 465 ZM542 481 H542 A5 5 0 0 1 547 486 V520 A5 5 0 0 1 542 525 H542 A5 5 0 0 1 537 520 V486 A5 5 0 0 1 542 481 ZM562 491 H562 A5 5 0 0 1 567 496 V510 A5 5 0 0 1 562 515 H562 A5 5 0 0 1 557 510 V496 A5 5 0 0 1 562 491 Z"/>
+    </group>
+    </group>
 </vector>

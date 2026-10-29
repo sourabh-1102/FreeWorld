@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BitChord"
+rootProject.name = "Silverfy"
 include(":shared")
 include(":sharedUi")
 

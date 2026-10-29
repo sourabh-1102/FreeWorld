@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 /*
- * FreeWorld's visual themes (docs/FREEWORLD_THEMES.md, the binding spec for
+ * Silverfy's visual themes (docs/SILVERFY_THEMES.md, the binding spec for
  * every platform). The colours themselves are tokens in styles/tokens.css,
  * under [data-theme] on <html>; this file names them, remembers the choice
  * and loads a theme's typeface only when it's picked. index.html sets the
@@ -59,7 +59,7 @@ export const THEMES: readonly Theme[] = [
 /** The picker's groups, in the spec's order. */
 export const THEME_SECTIONS = ['Classic', 'Soft & Cute', 'Futuristic & Retro', 'Artistic & Indie', 'Mystical & Fantasy'] as const;
 
-const THEME_KEY = 'freeworld:theme';
+const THEME_KEY = 'silverfy:theme';
 
 const themeOf = (id: string | null): Theme | undefined => THEMES.find((t) => t.id === id);
 

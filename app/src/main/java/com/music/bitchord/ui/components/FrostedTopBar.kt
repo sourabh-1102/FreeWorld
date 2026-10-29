@@ -69,6 +69,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
+import java.io.File
 import kotlinx.coroutines.launch
 import com.music.bitchord.R
 import com.music.bitchord.data.model.Account
@@ -485,7 +486,9 @@ fun TopBarAccountButton(
                 )
             },
     ) {
-        val photo = account?.thumbnailUrl
+        // A photo picked in Settings → Profile stands in for the account's.
+        val customPhoto by AppSettings.profilePhoto.collectAsStateWithLifecycle()
+        val photo: Any? = customPhoto?.let(::File) ?: account?.thumbnailUrl
         if (photo != null) {
             AsyncImage(
                 model = photo,

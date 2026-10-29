@@ -1,6 +1,6 @@
 # Maintainers
 
-This document lists the maintainers responsible for FreeWorld.
+This document lists the maintainers responsible for Silverfy.
 
 | Maintainer | GitHub | Responsibilities |
 |---|---|---|

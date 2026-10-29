@@ -1,6 +1,6 @@
-# BitChord for Wear OS
+# Silverfy for Wear OS
 
-A watch remote for the BitChord phone app: now playing over the player's mesh
+A watch remote for the Silverfy phone app: now playing over the player's mesh
 backdrop, play/pause on the cover with a progress ring (hold it to seek), skip,
 Love where the phone offers it, Up Next, shuffle, repeat, the phone's volume on
 the crown or bezel, an always-on player, and an Output picker covering the
@@ -49,17 +49,17 @@ uploads it as `bitchord-wear-prod-release-signed`.
 ./gradlew :wearos:assembleDevDebug :wearos:assembleProdRelease
 ```
 
-APKs land in `wearos/build/outputs/apk/<flavor>/<type>/BitChordWear-*.apk`.
+APKs land in `wearos/build/outputs/apk/<flavor>/<type>/SilverfyWear-*.apk`.
 To install on a Galaxy Watch, turn on Developer options → ADB debugging and
 Wireless debugging on the watch, then:
 
 ```bash
 adb pair <watch-ip>:<pairing-port>
 adb connect <watch-ip>:<port>
-adb -s <watch-ip>:<port> install -r wearos/build/outputs/apk/dev/debug/BitChordWear-dev-debug.apk
+adb -s <watch-ip>:<port> install -r wearos/build/outputs/apk/dev/debug/SilverfyWear-dev-debug.apk
 ```
 
-The phone needs a BitChord build that includes `WearBridge` (anything from this
+The phone needs a Silverfy build that includes `WearBridge` (anything from this
 change on), from the same flavor and signed with the same key.
 
 Debug builds are shrunk and non-debuggable, because an un-R8'd, debuggable

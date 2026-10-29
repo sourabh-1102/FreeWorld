@@ -4,7 +4,7 @@
  * upstream attribution. This file is the integration glue, adapted from
  * EchoMusicApp/Echo-Music's GlassEffectConfig/Modifier.liquidGlass
  * (GPL-3.0), cut down from Echo's full per-component/vibrancy-slider config
- * to the single on/off switch BitChord exposes in Settings. It is used by the
+ * to the single on/off switch Silverfy exposes in Settings. It is used by the
  * floating nav bar and, while enabled, the app-wide floating top controls.
  */
 package com.music.bitchord.ui.components
@@ -26,7 +26,7 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.LocalDensity
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.music.bitchord.data.settings.AppSettings
-import com.music.bitchord.ui.theme.LocalFreeWorldPalette
+import com.music.bitchord.ui.theme.LocalSilverfyPalette
 import com.music.bitchord.ui.components.backdrop.Backdrop
 import com.music.bitchord.ui.components.backdrop.backdrops.LayerBackdrop
 import com.music.bitchord.ui.components.backdrop.drawBackdrop
@@ -134,12 +134,12 @@ fun glassBarTint(): Color? =
 
 /**
  * The colour glass is tinted with before its opacity is applied. Classic keeps
- * its near-white and near-black; a FreeWorld theme tints with its own surface,
+ * its near-white and near-black; a Silverfy theme tints with its own surface,
  * so the bar and mini player take the theme's colour rather than grey.
  */
 @Composable
 private fun glassSurfaceTint(): Color =
-    LocalFreeWorldPalette.current?.surface
+    LocalSilverfyPalette.current?.surface
         ?: if (MaterialTheme.colorScheme.surface.luminance() > 0.5f) Color(0xFFFAFAFA) else Color(0xFF121212)
 
 /** How white the nav bar's glass is in dark theme — see [glassBarTint]. */

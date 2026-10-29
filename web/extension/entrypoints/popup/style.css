@@ -191,7 +191,7 @@ body {
 }
 
 /*
- * FreeWorld themes (docs/FREEWORLD_THEMES.md, lib/theme.ts): the spec's
+ * Silverfy themes (docs/SILVERFY_THEMES.md, lib/theme.ts): the spec's
  * colours over this file's variables, on <html data-theme> of the popup,
  * discord and grant pages. :root plus an attribute outranks the
  * prefers-color-scheme block, so a theme ignores the system appearance.

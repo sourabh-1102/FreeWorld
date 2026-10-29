@@ -8,9 +8,9 @@
       if (location.hostname === 'www.bitchord.in') location.replace('https://bitchord.in' + location.pathname + location.search + location.hash);
     </script>
     <script>
-      // The FreeWorld theme (src/state/theme.ts) on <html> before first paint, so a reload doesn't flash Classic.
+      // The Silverfy theme (src/state/theme.ts) on <html> before first paint, so a reload doesn't flash Classic.
       try {
-        const theme = localStorage.getItem('freeworld:theme');
+        const theme = localStorage.getItem('silverfy:theme');
         if (/^(kawaii|cottagecore|coquette|cyberpunk|vaporwave|nineties|minimalist|indie|boho|witchcore|zodiac|glowwave)$/.test(theme)) document.documentElement.dataset.theme = theme;
       } catch (e) {}
     </script>
@@ -18,7 +18,7 @@
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <title>FreeWorld</title>
+    <title>Silverfy</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- DM Sans is the app's typeface (web/docs/apple-music-dom.md, "Font"). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

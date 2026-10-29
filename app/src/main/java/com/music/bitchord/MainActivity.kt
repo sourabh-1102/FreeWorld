@@ -273,7 +273,7 @@ import com.music.bitchord.ui.components.ServerEditorHost
 import com.music.bitchord.ui.components.UpdateAvailableDialog
 import com.music.bitchord.ui.components.WebDavConflictAlert
 import com.music.bitchord.ui.components.FieldConfig
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import androidx.media3.common.Player
 import com.music.bitchord.data.YtMusicRepository
 import com.music.bitchord.ui.player.NowPlayingScreen
@@ -323,12 +323,12 @@ import com.music.bitchord.ui.replay.ReplayShareSheet
 import com.music.bitchord.ui.replay.ReplayStories
 import com.music.bitchord.ui.replay.ReplayStoryPage
 import com.music.bitchord.ui.replay.rememberReplayState
-import com.music.bitchord.ui.theme.BitChordTheme
+import com.music.bitchord.ui.theme.SilverfyTheme
 import com.music.bitchord.ui.theme.rememberArtworkPalette
 import com.music.bitchord.data.canvas.AppleArtistArtRepository
 import com.music.bitchord.data.canvas.keyColors
 import com.music.bitchord.ui.theme.SystemBarIcons
-import com.music.bitchord.ui.theme.FreeWorldThemes
+import com.music.bitchord.ui.theme.SilverfyThemes
 import com.music.bitchord.ui.utils.guardSheetFromContentTouches
 import com.music.bitchord.ui.utils.rememberIosOverscrollFactory
 import com.music.bitchord.ui.performance.resolvePerformanceRefreshRate
@@ -361,7 +361,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         // Before the composition, so a cold launch from a widget's artwork has
-        // the request already standing by the time BitChordApp first reads it.
+        // the request already standing by the time SilverfyApp first reads it.
         PlayerDeepLink.consume(intent)
         JamInviteLink.consume(intent)
         // Likewise for a link tapped or shared from another app — see [MusicLink].
@@ -369,7 +369,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             val theme by AppSettings.themeMode.collectAsStateWithLifecycle()
             val colorTheme by AppSettings.colorTheme.collectAsStateWithLifecycle()
-            val palette = remember(colorTheme) { FreeWorldThemes.byId(colorTheme) }
+            val palette = remember(colorTheme) { SilverfyThemes.byId(colorTheme) }
             val highPerformance by AppSettings.highPerformanceMode.collectAsStateWithLifecycle()
             val liquidGlassEnabled by AppSettings.liquidGlass.collectAsStateWithLifecycle()
             val iosOverscrollFactory = rememberIosOverscrollFactory()
@@ -378,7 +378,7 @@ class MainActivity : AppCompatActivity() {
             LaunchedEffect(highPerformance, performanceRefreshRate, composeView) {
                 applyPerformanceMode(highPerformance, performanceRefreshRate, composeView)
             }
-            // A FreeWorld theme is light or dark by design; only Classic still
+            // A Silverfy theme is light or dark by design; only Classic still
             // takes the light/dark setting. Everything downstream keyed on
             // darkTheme, the system bar glyphs included, follows from here.
             val systemDark = isSystemInDarkTheme()
@@ -387,9 +387,9 @@ class MainActivity : AppCompatActivity() {
                 ThemeMode.LIGHT -> false
                 ThemeMode.DARK -> true
             }
-            BitChordTheme(darkTheme = darkTheme, palette = palette) {
+            SilverfyTheme(darkTheme = darkTheme, palette = palette) {
                 // The glass surfaces sample this layer, and a layer records only
-                // what is drawn into it — which, for BitChord, is a page that
+                // what is drawn into it — which, for Silverfy, is a page that
                 // paints no background of its own. Everywhere a page is not
                 // showing artwork the recording is transparent, so the glass had
                 // nothing to blur there and you saw straight through it to the
@@ -422,7 +422,7 @@ class MainActivity : AppCompatActivity() {
                 // A measured constraint cannot be stale — it is the very width
                 // the split is about to be laid out in.
                 BoxWithConstraints(Modifier.fillMaxSize()) {
-                    BitChordApp(
+                    SilverfyApp(
                         darkTheme = darkTheme,
                         windowWidth = maxWidth,
                         windowHeight = maxHeight,
@@ -472,7 +472,7 @@ class MainActivity : AppCompatActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun BitChordApp(
+private fun SilverfyApp(
     darkTheme: Boolean,
     /** The width of the window this is laid out in — see the call site. */
     windowWidth: Dp,
@@ -1161,10 +1161,10 @@ private fun BitChordApp(
     val sharedLinkLabel = stringResource(R.string.shared_link)
     val tabs = remember(homeLabel, exploreLabel, libraryLabel, searchLabel) {
         listOf(
-            BottomTab(homeLabel, BitChordIcons.Home),
-            BottomTab(exploreLabel, BitChordIcons.TabExplore),
-            BottomTab(libraryLabel, BitChordIcons.TabLibrary),
-            BottomTab(searchLabel, BitChordIcons.TabSearch),
+            BottomTab(homeLabel, SilverfyIcons.Home),
+            BottomTab(exploreLabel, SilverfyIcons.TabExplore),
+            BottomTab(libraryLabel, SilverfyIcons.TabLibrary),
+            BottomTab(searchLabel, SilverfyIcons.TabSearch),
         )
     }
 
@@ -1777,7 +1777,7 @@ private fun BitChordApp(
 
     /**
      * A YouTube Music link tapped elsewhere on the device, a link shared into
-     * BitChord, or "play something" said to the assistant — see [MusicLink].
+     * Silverfy, or "play something" said to the assistant — see [MusicLink].
      *
      * Keyed on the controller as well as the request, because a link is as
      * often as not what cold-starts the app: the session it has to play into is
@@ -3640,7 +3640,7 @@ private fun BitChordApp(
                                 if (releaseSongs.isNotEmpty()) {
                                     IconButton(onClick = { detailSearching = !detailSearching }) {
                                         Icon(
-                                            if (detailSearching) Icons.Rounded.Close else BitChordIcons.Search,
+                                            if (detailSearching) Icons.Rounded.Close else SilverfyIcons.Search,
                                             contentDescription = stringResource(
                                                 if (detailSearching) R.string.close_search else R.string.search_this_list,
                                             ),
@@ -5398,7 +5398,7 @@ private fun FrostedFolderMenu(
             label = stringResource(if (grid) R.string.switch_to_list_view else R.string.switch_to_grid_view),
             checked = false,
             onClick = onToggleViewType,
-            icon = if (grid) BitChordIcons.ListView else BitChordIcons.GridView,
+            icon = if (grid) SilverfyIcons.ListView else SilverfyIcons.GridView,
         )
         HorizontalDivider(
             modifier = Modifier.padding(vertical = 4.dp),

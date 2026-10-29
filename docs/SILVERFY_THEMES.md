@@ -1,4 +1,4 @@
-# FreeWorld themes
+# Silverfy themes
 
 The single source of truth for the theme set shared by the Android app, the web player and the browser extension.
 Every platform uses the same ids, names and colours. Keep them in sync when one changes.
@@ -38,4 +38,4 @@ Decorative touches (web and extension only, all pure CSS, never images):
 - `kawaii` and `coquette`: larger corner radii (pill buttons, cards +6px).
 - `minimalist`: no gradients or shadows; radii reduced.
 
-Storage keys: web `freeworld:theme` (localStorage), extension `freeworld.theme` (browser.storage.local), Android the app's own settings store.
+Storage keys: web `silverfy:theme` (localStorage), extension `silverfy.theme` (browser.storage.local), Android the app's own settings store.

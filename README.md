@@ -2,9 +2,9 @@
 
 <br/>
 
-<img src="Logo.png" alt="FreeWorld" width="420" />
+<img src="Logo.png" alt="Silverfy" width="420" />
 
-### Your world of music. Your look.
+### Pure sound. Your look.
 
 <br/>
 
@@ -13,19 +13,19 @@
 </div>
 
 > [!IMPORTANT]
-> FreeWorld is not affiliated with, endorsed by, or connected to YouTube, Google, Spotify or Discord in any way. Use it at your own discretion.
+> Silverfy is not affiliated with, endorsed by, or connected to YouTube, Google, Spotify or Discord in any way. Use it at your own discretion.
 
 ---
 
 <div align="center">
 
-<img src="Banner.png" alt="FreeWorld banner" width="100%" />
+<img src="Banner.png" alt="Silverfy banner" width="100%" />
 
 </div>
 
 ## Features
 
-FreeWorld is a free, open-source music player for **Android**, **Android TV**, **Wear OS**, the **web** and a companion **browser extension**.
+Silverfy is a free, open-source music player for **Android**, **Android TV**, **Wear OS**, the **web** and a companion **browser extension**.
 
 #### Playback
 - **Search, browse and play** anything available on YouTube Music.
@@ -69,7 +69,7 @@ Pick a theme in **Settings → Appearance → Theme** (app and web player) or fr
 | Cottagecore | Vaporwave | Indie Kid | Zodiac |
 | Coquette | 90s Kid | Boho | Glowwave |
 
-**Classic** keeps the original look and follows your system's light or dark mode. Every other theme has its own fixed light or dark mode. The full colour specification lives in [docs/FREEWORLD_THEMES.md](docs/FREEWORLD_THEMES.md).
+**Classic** keeps the original look and follows your system's light or dark mode. Every other theme has its own fixed light or dark mode. The full colour specification lives in [docs/SILVERFY_THEMES.md](docs/SILVERFY_THEMES.md).
 
 ## Download
 
@@ -94,14 +94,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for tests and the pull-request workflow.
 
 ## Disclaimer
 
-FreeWorld is an independent, community-driven audio player. It is **not** associated with Google LLC, YouTube Music, Spotify, Discord, Deezer, Telegram or any of their parent companies.
+Silverfy is an independent, community-driven audio player. It is **not** associated with Google LLC, YouTube Music, Spotify, Discord, Deezer, Telegram or any of their parent companies.
 
-- **No media hosting:** FreeWorld does not host, upload or store copyrighted music. It plays files from your device or streams from public or user-authenticated services.
+- **No media hosting:** Silverfy does not host, upload or store copyrighted music. It plays files from your device or streams from public or user-authenticated services.
 - **Your responsibility:** you are responsible for making sure your use complies with your local copyright laws and the terms of the services you connect.
 - **No guarantees:** third-party services can change at any time, and features that depend on them may stop working.
 
 ## License
 
-FreeWorld is free software under the **GNU General Public License v3.0**; see [LICENSE](LICENSE). Any distribution must include the corresponding source code under the same license.
+Silverfy is free software under the **GNU General Public License v3.0**; see [LICENSE](LICENSE). Any distribution must include the corresponding source code under the same license.
 
-<sub>FreeWorld is a modified version of BitChord, © its contributors, licensed under GPLv3. Modified on 29 October 2026: rebranded, with a new logo and a switchable theme system.</sub>
+<sub>Silverfy is a modified version of GPLv3-licensed open-source software; the original copyright notices are kept in the source files. Modified on 29 October 2026.</sub>

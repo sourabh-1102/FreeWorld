@@ -26,8 +26,8 @@ export default defineConfig({
     },
   }),
   manifest: ({ browser }) => ({
-    name: 'FreeWorld',
-    description: 'Connects the FreeWorld web player to YouTube Music, Spotify and Discord.',
+    name: 'Silverfy',
+    description: 'Connects the Silverfy web player to YouTube Music, Spotify and Discord.',
     homepage_url: SITE_ORIGINS[0],
     // `cookies` reads the YouTube session for signed-in requests (phase 5);
     // the cookies themselves never leave the extension (lib/ytAuth.ts).

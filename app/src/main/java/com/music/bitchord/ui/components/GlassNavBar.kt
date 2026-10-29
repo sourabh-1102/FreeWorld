@@ -2,7 +2,7 @@
  * The bar's structure and its inline/expanded behaviour are
  * EchoMusicApp/Echo-Music's AppFloatingNavBar + FloatingMiniPlayer (GPL-3.0),
  * over the FloatingTabBar vendored in [com.music.bitchord.ui.components.floatingtabbar].
- * BitChord's own tabs, song model, transport and haptics are wired through it in
+ * Silverfy's own tabs, song model, transport and haptics are wired through it in
  * place of Echo's Screens routing and PlayerConnection.
  */
 @file:OptIn(ExperimentalSharedTransitionApi::class)
@@ -31,8 +31,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Pause
-import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -120,7 +118,7 @@ fun GlassNavBar(
     val currentOnTabSelected by rememberUpdatedState(onTabSelected)
 
     // Search is the odd one out in the iOS 26 layout: a circle of its own beside
-    // the pill rather than a quarter of it. It is the last tab in BitChord's
+    // the pill rather than a quarter of it. It is the last tab in Silverfy's
     // order, which is where the shape wants it anyway.
     val standaloneIndex = tabs.lastIndex
 
@@ -425,10 +423,10 @@ private fun GlassNowPlaying(
                     },
                     modifier = Modifier.size(glyphSlot),
                 ) {
-                    Icon(
-                        imageVector = if (isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow,
+                    SilverfyPlayMark(
+                        isPlaying = isPlaying,
+                        color = contentColor,
                         contentDescription = stringResource(if (isPlaying) R.string.pause else R.string.play),
-                        tint = contentColor,
                         modifier = Modifier.size(glyphSize),
                     )
                 }

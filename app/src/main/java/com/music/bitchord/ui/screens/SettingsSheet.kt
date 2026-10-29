@@ -142,7 +142,7 @@ import com.music.bitchord.ui.components.languageDisplayNameRes
 import com.music.bitchord.ui.components.MessageState
 import com.music.bitchord.ui.components.SearchField
 import com.music.bitchord.ui.components.thumbnailBorder
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import com.music.bitchord.ui.performance.resolvePerformanceRefreshRate
 import com.music.bitchord.ui.performance.supportedPerformanceRefreshRates
 import com.music.bitchord.data.model.Account
@@ -160,7 +160,7 @@ import com.music.bitchord.data.settings.AudioQuality
 import com.music.bitchord.data.settings.DownloadQuality
 import com.music.bitchord.data.settings.ThemeMode
 import com.music.bitchord.ui.theme.ClassicSwatches
-import com.music.bitchord.ui.theme.FreeWorldThemes
+import com.music.bitchord.ui.theme.SilverfyThemes
 import com.music.bitchord.ui.theme.ThemeSection
 import com.music.bitchord.data.stats.Backup
 import com.music.bitchord.playback.AudioCache
@@ -232,7 +232,7 @@ fun SettingsScreen(
     val theme by AppSettings.themeMode.collectAsStateWithLifecycle()
     val colorTheme by AppSettings.colorTheme.collectAsStateWithLifecycle()
     // Null under Classic, the only theme that still takes the light/dark choice.
-    val themePalette = FreeWorldThemes.byId(colorTheme)
+    val themePalette = SilverfyThemes.byId(colorTheme)
     val sessionId by AppSettings.audioSessionId.collectAsStateWithLifecycle()
     val outputPcmMode by AppSettings.outputPcmMode.collectAsStateWithLifecycle()
     val preferUsbDac by AppSettings.preferUsbDac.collectAsStateWithLifecycle()
@@ -417,6 +417,12 @@ fun SettingsScreen(
             modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 4.dp),
         )
 
+        SearchableSettingsGroup(search, header = stringResource(R.string.profile)) {
+            row(stringResource(R.string.profile), "name", "photo", "picture", "avatar") {
+                ProfileSettingsCard(account = account)
+            }
+        }
+
         SearchableSettingsGroup(search) {
             val accountTitle = stringResource(R.string.account_integrations)
             // What the row opens is the scrobbling screen, so the services it
@@ -491,7 +497,7 @@ fun SettingsScreen(
             //
             // Greyed rather than hidden where the device can't decode E-AC-3.
             // A missing row reads as a feature the app doesn't have; a disabled
-            // one with a reason under it is the difference between "BitChord
+            // one with a reason under it is the difference between "Silverfy
             // has no Atmos" and "this phone has no Dolby decoder", and only the
             // second is true. The stored preference is left untouched either
             // way — see [AppSettings.dolbyAtmos].
@@ -558,7 +564,7 @@ fun SettingsScreen(
                     title = exportDownloadsTitle,
                     checked = exportDownloads,
                     onCheckedChange = AppSettings::setExportDownloads,
-                    subtitle = "Music/BitChord".takeIf { exportDownloads },
+                    subtitle = "Music/Silverfy".takeIf { exportDownloads },
                 )
             }
         }
@@ -754,7 +760,7 @@ fun SettingsScreen(
                 )
             }
             // The system panel is not listed here as well. A device with a
-            // Dolby or Dirac panel has something BitChord cannot reproduce and
+            // Dolby or Dirac panel has something Silverfy cannot reproduce and
             // keeps its row — but one level in, at the foot of the equaliser
             // screen, rather than as a second equaliser entry alongside ours.
             val equalizerTitle = stringResource(R.string.equalizer)
@@ -779,7 +785,7 @@ fun SettingsScreen(
                     onClick = { pickingColorTheme = true },
                 )
             }
-            // Only Classic follows this. A FreeWorld theme is light or dark by
+            // Only Classic follows this. A Silverfy theme is light or dark by
             // design, so the control stays where it was but greys out and says
             // which way the theme has decided, rather than silently doing nothing.
             val themeModeTitle = stringResource(R.string.theme_mode)
@@ -1096,7 +1102,7 @@ fun SettingsScreen(
             val highPerformanceModeTitle = stringResource(R.string.high_performance_mode)
             row(highPerformanceModeTitle, "frame rate", "refresh rate", "hz", "battery", "smooth") {
                 SettingsRow(
-                    icon = BitChordIcons.Performance,
+                    icon = SilverfyIcons.Performance,
                     title = highPerformanceModeTitle,
                     subtitle = if (highPerformanceMode) {
                         stringResource(R.string.high_performance_active, selectedPerformanceRefreshRate)
@@ -1132,7 +1138,7 @@ fun SettingsScreen(
                 val refreshRateTitle = stringResource(R.string.refresh_rate)
                 row(refreshRateTitle, "hz", "frame rate") {
                     SettingsRow(
-                        icon = BitChordIcons.FrameRate,
+                        icon = SilverfyIcons.FrameRate,
                         title = refreshRateTitle,
                     )
                     SegmentedControl(
@@ -1597,27 +1603,19 @@ fun SettingsScreen(
         if (searchQuery.isBlank()) {
         Text(
             text = buildAnnotatedString {
-                append("FreeWorld $version  ")
+                append("Silverfy $version  ")
                 val linkStyles = TextLinkStyles(
                     style = SpanStyle(
                         color = MaterialTheme.colorScheme.primary,
                         textDecoration = TextDecoration.Underline,
                     ),
                 )
-                withLink(LinkAnnotation.Url("https://github.com/kushagrasinghx/BitChord", linkStyles)) {
+                withLink(LinkAnnotation.Url("https://github.com/sourabh-1102/Silverfy", linkStyles)) {
                     append("GitHub")
                 }
                 append("  ")
-                withLink(LinkAnnotation.Url("https://github.com/kushagrasinghx", linkStyles)) {
+                withLink(LinkAnnotation.Url("https://github.com/sourabh-1102", linkStyles)) {
                     append("Developer")
-                }
-                append("  ")
-                withLink(LinkAnnotation.Url("https://discord.gg/pDdKfrdHY6", linkStyles)) {
-                    append("Discord")
-                }
-                append("  ")
-                withLink(LinkAnnotation.Url("https://bitchord.kushagrasingh.in/", linkStyles)) {
-                    append("Website")
                 }
                 append("\n~YouTube Music & Listen Together Backend")
             },
@@ -2163,7 +2161,7 @@ private fun QualitySheet(
 }
 
 /**
- * Classic and the FreeWorld themes, grouped the way docs/FREEWORLD_THEMES.md
+ * Classic and the Silverfy themes, grouped the way docs/SILVERFY_THEMES.md
  * groups them. Each shows its page, accent and second accent as swatches, so
  * the list reads as colours before anyone has to read the names.
  */
@@ -2174,7 +2172,7 @@ private fun ThemeSheet(
 ) {
     // An id this build doesn't know falls back to Classic in MainActivity, so
     // it is Classic that is ticked here too.
-    val selectedPalette = FreeWorldThemes.byId(selected)
+    val selectedPalette = SilverfyThemes.byId(selected)
     Column(
         Modifier
             .fillMaxWidth()
@@ -2213,11 +2211,11 @@ private fun ThemeSheet(
             detail = stringResource(R.string.theme_classic_detail),
             swatches = ClassicSwatches,
             chosen = selectedPalette == null,
-            onClick = { onSelect(FreeWorldThemes.CLASSIC) },
+            onClick = { onSelect(SilverfyThemes.CLASSIC) },
         )
         ThemeSection.entries.forEach { section ->
             ThemeSectionHeader(stringResource(section.label))
-            FreeWorldThemes.all.filter { it.section == section }.forEach { palette ->
+            SilverfyThemes.all.filter { it.section == section }.forEach { palette ->
                 ThemeOption(
                     name = stringResource(palette.name),
                     detail = stringResource(if (palette.dark) R.string.dark else R.string.light),

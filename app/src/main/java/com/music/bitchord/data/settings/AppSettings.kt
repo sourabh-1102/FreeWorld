@@ -202,7 +202,7 @@ object AppSettings {
     val wifiOnlyDownloads = MutableStateFlow(true)
 
     /**
-     * Keep ordinary downloads in Music/BitChord where other music apps can see
+     * Keep ordinary downloads in Music/Silverfy where other music apps can see
      * them. Off (the default) keeps downloads in this app's private storage.
      * HLS downloads always stay private because they are a playlist package,
      * not one portable audio file.
@@ -257,7 +257,7 @@ object AppSettings {
      * normalizes by default for the same reason.
      *
      * The case against it is that a constant gain is still a multiplication,
-     * so this is the first thing in BitChord that is *on* out of the box and
+     * so this is the first thing in Silverfy that is *on* out of the box and
      * alters samples. Rather than hide that, the Audio Pipeline readout names
      * it: its Bit-exact row reports the first stage in the chain that is
      * altering samples, and switching this off is the first thing a listener
@@ -342,11 +342,14 @@ object AppSettings {
     val themeMode = MutableStateFlow(ThemeMode.DARK)
 
     /**
-     * The FreeWorld colour theme, by its id in docs/FREEWORLD_THEMES.md.
+     * The Silverfy colour theme, by its id in docs/SILVERFY_THEMES.md.
      * [DEFAULT_COLOR_THEME] is the original look and still follows [themeMode];
      * every other theme carries its own light or dark and overrides it.
      */
     val colorTheme = MutableStateFlow(DEFAULT_COLOR_THEME)
+
+    /** The photo picked in Settings → Profile, as a file path; null shows the account's own. */
+    val profilePhoto = MutableStateFlow<String?>(null)
 
     /** Keep playing similar music once the queue runs out. */
     val autoplay = MutableStateFlow(true)
@@ -752,7 +755,7 @@ object AppSettings {
 
     /**
      * A temporary cap on [effectiveAudioQuality], for as long as something other
-     * than this phone's own speaker is playing — the BitChord watch app, whose
+     * than this phone's own speaker is playing — the Silverfy watch app, whose
      * audio goes over a Bluetooth link that cannot keep up with lossless. Never
      * persisted, never shown: the listener's own settings are untouched, and
      * apply again the moment the phone takes the music back.
@@ -857,6 +860,7 @@ object AppSettings {
             ThemeMode.valueOf(prefs.getString(KEY_THEME, null) ?: "DARK")
         }.getOrDefault(ThemeMode.DARK)
         colorTheme.value = prefs.getString(KEY_COLOR_THEME, null) ?: DEFAULT_COLOR_THEME
+        profilePhoto.value = prefs.getString(KEY_PROFILE_PHOTO, null)
         autoplay.value = prefs.getBoolean(KEY_AUTOPLAY, true)
         shuffleEnabled.value = prefs.getBoolean(KEY_SHUFFLE_ENABLED, false)
         repeatMode.value = prefs.getInt(KEY_REPEAT_MODE, Player.REPEAT_MODE_OFF)
@@ -981,7 +985,7 @@ object AppSettings {
      * the very first call seeds the stored value from [currentVersionCode]
      * rather than reporting an update.
      *
-     * BitChord ships sideloaded (see [com.music.bitchord.data.AppUpdateChecker]),
+     * Silverfy ships sideloaded (see [com.music.bitchord.data.AppUpdateChecker]),
      * so installing a new APK over the old one is the only "update" there is —
      * app data, this pref included, survives it exactly like a Play Store
      * update. Call once per process start, before anything reads a cache that
@@ -1226,6 +1230,11 @@ object AppSettings {
     fun setColorTheme(id: String) {
         colorTheme.value = id
         prefs.edit().putString(KEY_COLOR_THEME, id).apply()
+    }
+
+    fun setProfilePhoto(path: String?) {
+        profilePhoto.value = path
+        prefs.edit().putString(KEY_PROFILE_PHOTO, path).apply()
     }
 
     fun setReduceAnimation(value: Boolean) {
@@ -2026,6 +2035,7 @@ object AppSettings {
     private const val KEY_SPEED = "playback_speed"
     private const val KEY_THEME = "theme_mode"
     private const val KEY_COLOR_THEME = "color_theme"
+    private const val KEY_PROFILE_PHOTO = "profile_photo"
     const val DEFAULT_COLOR_THEME = "classic"
     private const val KEY_AUTOPLAY = "autoplay"
     private const val KEY_SHUFFLE_ENABLED = "shuffle_enabled"

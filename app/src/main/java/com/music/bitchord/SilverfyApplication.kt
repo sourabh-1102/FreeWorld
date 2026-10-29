@@ -43,7 +43,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
-class BitChordApplication : Application(), SingletonImageLoader.Factory {
+class SilverfyApplication : Application(), SingletonImageLoader.Factory {
 
     @OptIn(UnstableApi::class)
     override fun onCreate() {
@@ -187,7 +187,7 @@ class BitChordApplication : Application(), SingletonImageLoader.Factory {
                     chain.request().newBuilder()
                         .header(
                             "User-Agent",
-                            "BitChord/${BuildConfig.VERSION_NAME} (Android; +https://github.com/kushagrasinghx/BitChord)",
+                            "Silverfy/${BuildConfig.VERSION_NAME} (Android; +https://github.com/sourabh-1102/Silverfy)",
                         )
                         .build(),
                 )

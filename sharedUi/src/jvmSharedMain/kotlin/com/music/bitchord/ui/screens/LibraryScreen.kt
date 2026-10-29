@@ -51,7 +51,7 @@ import com.music.bitchord.data.model.ShelfItem
 import com.music.bitchord.data.model.UiState
 import com.music.bitchord.data.settings.LibrarySort
 import com.music.bitchord.ui.AppUi
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import com.music.bitchord.ui.components.LIBRARY_GRID_SPACING
 import com.music.bitchord.ui.components.MessageState
 import com.music.bitchord.ui.components.PAGE_GUTTER
@@ -277,7 +277,7 @@ private fun LibraryLinkList(links: List<LibraryLink>, onClick: (ShelfItem) -> Un
                     modifier = Modifier.weight(1f),
                 )
                 Icon(
-                    imageVector = BitChordIcons.ChevronRight,
+                    imageVector = SilverfyIcons.ChevronRight,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = .6f),
                     modifier = Modifier.size(20.dp),
@@ -321,14 +321,14 @@ private fun PlaylistShelf(
         leadingCard = {
             Row(horizontalArrangement = Arrangement.spacedBy(LIBRARY_GRID_SPACING)) {
                 NewShelfCard(
-                    icon = BitChordIcons.Plus,
+                    icon = SilverfyIcons.Plus,
                     label = stringResource(Res.string.new_playlist),
                     subtitle = stringResource(Res.string.saved_to_youtube_music),
                     onClick = onNewPlaylist,
                 )
                 if (onImportSpotifyPlaylist != null) {
                     NewShelfCard(
-                        icon = BitChordIcons.Download,
+                        icon = SilverfyIcons.Download,
                         label = stringResource(Res.string.import_spotify),
                         subtitle = stringResource(Res.string.import_spotify_subtitle),
                         onClick = onImportSpotifyPlaylist,
@@ -424,7 +424,7 @@ fun LibraryGridPage(
             if (onNewPlaylist != null) {
                 item(key = "leading") {
                     NewShelfCard(
-                        icon = BitChordIcons.Plus,
+                        icon = SilverfyIcons.Plus,
                         label = stringResource(Res.string.new_playlist),
                         subtitle = stringResource(Res.string.saved_to_youtube_music),
                         onClick = onNewPlaylist,

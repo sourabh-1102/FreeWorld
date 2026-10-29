@@ -100,7 +100,7 @@ export default function SettingsPage() {
           <LinkRow
             to="/extension"
             icon={<Glyph Icon={MdOutlineExtension} color="#636366" />}
-            title="FreeWorld Extension"
+            title="Silverfy Extension"
             value={present ? `v${extension.extension.info.version}` : 'Not installed'}
           />
         </section>
@@ -109,7 +109,7 @@ export default function SettingsPage() {
             label="Share Listening Activity to YouTube"
             detail={
               present && !extension.extension.info.capabilities.includes('yt.stats')
-                ? 'Update the FreeWorld extension to share: this version can’t send plays to YouTube.'
+                ? 'Update the Silverfy extension to share: this version can’t send plays to YouTube.'
                 : 'Songs you play here go to your YouTube Music history and shape its recommendations.'
             }
             checked={shareHistory}

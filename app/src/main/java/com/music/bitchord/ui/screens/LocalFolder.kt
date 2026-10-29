@@ -86,7 +86,7 @@ import com.music.bitchord.ui.components.SongRow
 import com.music.bitchord.ui.components.longPressMenuClickable
 import com.music.bitchord.ui.components.rememberRemoteArtworkUrl
 import com.music.bitchord.ui.components.thumbnailBorder
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import com.music.bitchord.ui.theme.ArtworkPalette
 
 /**
@@ -690,7 +690,7 @@ private fun GroupLabels(title: String, subtitle: String, palette: ArtworkPalette
 @Composable
 private fun TrailingGlyph(selected: Boolean, palette: ArtworkPalette) {
     Icon(
-        imageVector = if (selected) Icons.Rounded.CheckCircle else BitChordIcons.ChevronRight,
+        imageVector = if (selected) Icons.Rounded.CheckCircle else SilverfyIcons.ChevronRight,
         contentDescription = if (selected) stringResource(R.string.selected) else null,
         tint = if (selected) MaterialTheme.colorScheme.primary else palette.onBackgroundVariant,
         modifier = Modifier.size(if (selected) 22.dp else 16.dp),

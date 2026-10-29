@@ -151,7 +151,7 @@ import com.music.bitchord.ui.LyricsProviderState
 import com.music.bitchord.ui.components.optimizedHazeEffect
 import com.music.bitchord.ui.haptics.Haptic
 import com.music.bitchord.ui.haptics.rememberHaptics
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.music.bitchord.data.canvas.CanvasSource
 import com.music.bitchord.data.lyrics.LyricLine
@@ -2963,7 +2963,7 @@ fun NowPlayingScreen(
                             ) {
                                 if (!art.loaded && !canvasRendered) {
                                     Icon(
-                                        imageVector = BitChordIcons.MusicNote,
+                                        imageVector = SilverfyIcons.MusicNote,
                                         contentDescription = null,
                                         tint = Color.White.copy(alpha = 0.35f),
                                         modifier = Modifier
@@ -3275,7 +3275,7 @@ fun NowPlayingScreen(
                             if (signedIn && song.localUri == null) {
                                 val liked = likeStatus == LikeStatus.LIKE
                                 CircleGlyph(
-                                    icon = if (liked) BitChordIcons.StarFilled else BitChordIcons.Star,
+                                    icon = if (liked) SilverfyIcons.StarFilled else SilverfyIcons.Star,
                                     contentDescription = stringResource(
                                         if (liked) Res.string.remove_from_liked else Res.string.like,
                                     ),

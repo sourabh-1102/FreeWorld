@@ -1163,7 +1163,7 @@ class CrossfadeController(
         return if (seconds > 0) seconds * 1000L else 0L
     }
 
-    /** BitChord doesn't carry album metadata on [MediaMetadata] yet, so [TransitionTrackInfo.album] stays blank. */
+    /** Silverfy doesn't carry album metadata on [MediaMetadata] yet, so [TransitionTrackInfo.album] stays blank. */
     private fun MediaItem.toTransitionInfo(durationMs: Long) = TransitionTrackInfo(
         id = mediaId,
         durationMs = durationMs,
@@ -2689,7 +2689,7 @@ class CrossfadeController(
     // equal-power is right everywhere.
 
     private companion object {
-        const val TAG = "BitChordCrossfade"
+        const val TAG = "SilverfyCrossfade"
 
         /**
          * Used only before a pair has been analysed, or when the evidence is

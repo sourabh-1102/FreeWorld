@@ -81,7 +81,7 @@ function ImportButton({ title, videoIds, ready }: { title: string; videoIds: str
   const navigate = useNavigate();
   const [confirming, setConfirming] = useState(false);
   const create = useMutation({
-    mutationFn: () => createPlaylist(title, videoIds, 'Imported from Spotify with FreeWorld'),
+    mutationFn: () => createPlaylist(title, videoIds, 'Imported from Spotify with Silverfy'),
     onSuccess: (playlistId) => navigate(`/playlist/${encodeURIComponent(`VL${playlistId}`)}`),
   });
   if (!ytSignedIn) return null;

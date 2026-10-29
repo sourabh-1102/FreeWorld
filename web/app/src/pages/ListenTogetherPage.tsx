@@ -145,7 +145,7 @@ function StartOrJoin({ signedIn }: { signedIn: boolean }) {
           />
         </label>
       </section>
-      <p className={settingsUi.footer}>Leave the server empty to use FreeWorld’s. Anyone joining your party uses the server it’s on.</p>
+      <p className={settingsUi.footer}>Leave the server empty to use Silverfy’s. Anyone joining your party uses the server it’s on.</p>
     </>
   );
 }

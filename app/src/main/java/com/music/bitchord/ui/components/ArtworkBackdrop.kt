@@ -83,7 +83,7 @@ fun ArtworkBackdrop(
             )
         }
         // The app's theme, not the system's: the two disagree under an in-app
-        // Light/Dark choice or a FreeWorld theme with its own mode.
+        // Light/Dark choice or a Silverfy theme with its own mode.
         val isDark = androidx.compose.material3.MaterialTheme.colorScheme.background.luminance() < 0.5f
         val alpha0 = if (isDark) 0.40f else 0.08f
         val alpha1 = if (isDark) 0.55f else 0.25f

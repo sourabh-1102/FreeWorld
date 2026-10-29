@@ -1,11 +1,11 @@
 /*
- * FreeWorld themes on the extension's own pages (docs/FREEWORLD_THEMES.md).
+ * Silverfy themes on the extension's own pages (docs/SILVERFY_THEMES.md).
  * The colours are variable sets in entrypoints/popup/style.css, which every
  * page loads; this names them, remembers the popup's choice and puts it on
  * <html data-theme> of the popup, discord and grant pages.
  */
 
-export const THEME_KEY = 'freeworld.theme';
+export const THEME_KEY = 'silverfy.theme';
 
 export interface ExtensionTheme {
   id: string;

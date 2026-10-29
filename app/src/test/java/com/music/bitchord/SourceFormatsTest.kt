@@ -155,7 +155,7 @@ class SourceFormatsTest {
         val reason = reason(SourceFormats.detect(body, "https://host/registry.json"))
 
         assertTrue(reason, reason.contains("extensions"))
-        assertTrue(reason, reason.contains("not a format FreeWorld reads"))
+        assertTrue(reason, reason.contains("not a format Silverfy reads"))
     }
 
     @Test

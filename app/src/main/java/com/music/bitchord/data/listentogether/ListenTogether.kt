@@ -5,7 +5,7 @@ import android.os.SystemClock
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.Network
-import com.music.bitchord.BitChordApplication
+import com.music.bitchord.SilverfyApplication
 import com.music.bitchord.BuildConfig
 import com.music.bitchord.data.DebugLog as Log
 import com.music.bitchord.data.settings.AppSettings
@@ -1466,7 +1466,7 @@ object ListenTogether {
      * real account identifiers would be holding something it has no use for.
      */
     private fun identity(nickname: String = nickname()): Identity? {
-        val store = BitChordApplication.authStore
+        val store = SilverfyApplication.authStore
         if (!store.isSignedIn) return null
         val account = store.activeSession ?: return null
         val profile = account.profiles.firstOrNull { it.profileId == account.activeProfileId }

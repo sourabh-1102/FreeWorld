@@ -171,7 +171,7 @@ import com.music.bitchord.ui.components.topBarContentPadding
 import com.music.bitchord.ui.components.trackColumnWidth
 import com.music.bitchord.ui.haptics.Haptic
 import com.music.bitchord.ui.haptics.rememberHaptics
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import com.music.bitchord.ui.player.CanvasArtworkPlayer
 import com.music.bitchord.ui.theme.ArtworkPalette
 import com.music.bitchord.ui.theme.rememberArtworkPalette
@@ -1013,7 +1013,7 @@ private fun ReleaseHeader(
                     // greyed-out plus would only promise one. Apple Music's
                     // own pair for that case: Play and Shuffle, side by side.
                     ActionPill(
-                        icon = BitChordIcons.Play,
+                        icon = SilverfyIcons.Play,
                         label = stringResource(R.string.play),
                         onClick = onPlay,
                         filled = true,
@@ -1021,7 +1021,7 @@ private fun ReleaseHeader(
                         modifier = Modifier.weight(1f),
                     )
                     ActionPill(
-                        icon = BitChordIcons.Shuffle,
+                        icon = SilverfyIcons.Shuffle,
                         label = stringResource(R.string.shuffle),
                         onClick = onShuffle,
                         filled = false,
@@ -1041,14 +1041,14 @@ private fun ReleaseHeader(
                     return@Row
                 }
                 CircleIconButton(
-                    icon = BitChordIcons.Shuffle,
+                    icon = SilverfyIcons.Shuffle,
                     contentDescription = stringResource(R.string.shuffle),
                     onClick = onShuffle,
                     haptic = Haptic.Resume,
                     size = RELEASE_SIDE_BUTTON,
                 )
                 ActionPill(
-                    icon = BitChordIcons.Play,
+                    icon = SilverfyIcons.Play,
                     label = stringResource(R.string.play),
                     onClick = onPlay,
                     filled = true,
@@ -1059,7 +1059,7 @@ private fun ReleaseHeader(
                     CircleIconButton(
                         // A tick, not a filled-in plus: the pair reads as
                         // "not yet / done", which is what the state is.
-                        icon = if (library.saved) BitChordIcons.Check else BitChordIcons.Plus,
+                        icon = if (library.saved) SilverfyIcons.Check else SilverfyIcons.Plus,
                         contentDescription = if (library.saved) {
                             stringResource(R.string.remove_from_library)
                         } else {
@@ -1073,7 +1073,7 @@ private fun ReleaseHeader(
                     // Shown but greyed out for a guest, rather than leaving a
                     // hole beside Play.
                     CircleIconButton(
-                        icon = BitChordIcons.Plus,
+                        icon = SilverfyIcons.Plus,
                         contentDescription = stringResource(R.string.add_to_library),
                         onClick = {},
                         size = RELEASE_SIDE_BUTTON,
@@ -1130,7 +1130,7 @@ private fun DetailSearchField(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            imageVector = BitChordIcons.Search,
+            imageVector = SilverfyIcons.Search,
             contentDescription = null,
             tint = palette.onBackgroundVariant,
             modifier = Modifier.size(18.dp),
@@ -1510,7 +1510,7 @@ private fun ActionRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         CircleIconButton(
-            icon = BitChordIcons.Shuffle,
+            icon = SilverfyIcons.Shuffle,
             contentDescription = stringResource(R.string.shuffle),
             onClick = onShuffle,
             haptic = Haptic.Resume,
@@ -2321,7 +2321,7 @@ private fun DetailPage.placeholderIcon(): ImageVector = deviceFolderIcon(browseI
     LocalGroups.isArtist(browseId) -> Icons.Rounded.Person
     type == BrowseType.ALBUM -> Icons.Rounded.Album
     type == BrowseType.PLAYLIST -> Icons.AutoMirrored.Rounded.QueueMusic
-    else -> BitChordIcons.MusicNote
+    else -> SilverfyIcons.MusicNote
 }
 
 /** "10 tracks" → "10 Tracks", "playlist" → "Playlist". */

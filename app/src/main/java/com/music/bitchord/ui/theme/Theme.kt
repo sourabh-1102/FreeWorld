@@ -64,7 +64,7 @@ val SFProDisplay = FontFamily(
 )
 
 // Heavy, tight typography — the backbone of the Apple Music look.
-private val BitChordTypography = Typography(
+private val SilverfyTypography = Typography(
     displayLarge = TextStyle(fontWeight = FontWeight.W800, fontSize = 34.sp, letterSpacing = (-0.8).sp),
     headlineLarge = TextStyle(fontWeight = FontWeight.W800, fontSize = 30.sp, letterSpacing = (-0.7).sp),
     headlineMedium = TextStyle(fontWeight = FontWeight.W700, fontSize = 22.sp, letterSpacing = (-0.4).sp),
@@ -96,20 +96,20 @@ private fun Typography.withFamily(family: FontFamily) = Typography(
 )
 
 /**
- * [palette] is the FreeWorld theme in force, or null for Classic. A theme has
+ * [palette] is the Silverfy theme in force, or null for Classic. A theme has
  * its own light or dark, so callers resolve [darkTheme] from it first (see
  * MainActivity); here it only picks between Classic's two schemes.
  */
 @Composable
-fun BitChordTheme(
+fun SilverfyTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    palette: FreeWorldPalette? = null,
+    palette: SilverfyPalette? = null,
     content: @Composable () -> Unit,
 ) {
-    CompositionLocalProvider(LocalFreeWorldPalette provides palette) {
+    CompositionLocalProvider(LocalSilverfyPalette provides palette) {
         MaterialTheme(
             colorScheme = palette?.colorScheme ?: if (darkTheme) DarkColors else LightColors,
-            typography = BitChordTypography,
+            typography = SilverfyTypography,
             content = content,
         )
     }

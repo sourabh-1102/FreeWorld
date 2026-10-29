@@ -151,10 +151,10 @@ export function Sidebar() {
         aria-label="Main"
       >
         <div className="mt-2 ml-2 flex h-18 items-center px-5">
-          <PrefetchLink to="/home" className="inline-flex items-center gap-2 rounded-[6px]" aria-label="FreeWorld, Home" onClick={close}>
+          <PrefetchLink to="/home" className="inline-flex items-center gap-2 rounded-[6px]" aria-label="Silverfy, Home" onClick={close}>
             {/* White on dark, as Apple's own wordmark; it follows the label colour so it stays visible in light. */}
             <LogoMark size={22} className="text-primary" />
-            <span className="type-[700_19px/24px] tracking-[-0.01em]">FreeWorld</span>
+            <span className="type-[700_19px/24px] tracking-[-0.01em]">Silverfy</span>
           </PrefetchLink>
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto pr-3 pl-5 [scrollbar-width:none]">
@@ -168,7 +168,7 @@ export function Sidebar() {
             <span className={icon}>
               <MdOutlineExtension size={18} />
             </span>
-            <span className={navLabel}>FreeWorld Extension</span>
+            <span className={navLabel}>Silverfy Extension</span>
             {update.state === 'available' && (
               <span className="ml-auto rounded-[10px] bg-key px-[7px] py-0.5 type-subhead-emphasized text-on-key" title={`Version ${update.latest.version} is available`}>
                 Update

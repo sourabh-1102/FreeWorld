@@ -24,7 +24,7 @@ import androidx.wear.ambient.AmbientLifecycleObserver
 import com.music.bitchord.wear.ui.Ambient
 import com.music.bitchord.wear.ui.LocalAmbient
 import com.music.bitchord.wear.data.PhoneLink
-import com.music.bitchord.wear.ui.BitChordWearTheme
+import com.music.bitchord.wear.ui.SilverfyWearTheme
 import com.music.bitchord.wear.ui.WearApp
 
 class WearViewModel(app: Application) : AndroidViewModel(app) {
@@ -95,7 +95,7 @@ class WearActivity : ComponentActivity() {
             }
         }
         setContent {
-            BitChordWearTheme {
+            SilverfyWearTheme {
                 CompositionLocalProvider(LocalAmbient provides ambient.value) {
                     WearApp(model.link)
                 }

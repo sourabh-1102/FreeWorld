@@ -124,7 +124,7 @@ export function savePartySettings(change: Partial<Settings>): void {
   localStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...partySettings(), ...change }));
 }
 
-/** The server parties are made on: the custom one if set, else BitChord's. */
+/** The server parties are made on: the custom one if set, else Silverfy's. */
 export function idleServer(): string {
   return sanitizeServerUrl(partySettings().customServer) ?? DEFAULT_SERVER;
 }

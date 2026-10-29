@@ -13,6 +13,7 @@ import com.music.bitchord.data.model.ArtistCredit
 import com.music.bitchord.data.model.CreditSegment
 import com.music.bitchord.data.model.creditSegments
 import com.music.bitchord.sharedui.resources.*
+import com.music.bitchord.ui.components.SilverfyPlayMark
 
 import org.jetbrains.compose.resources.DrawableResource
 import androidx.compose.animation.animateContentSize
@@ -111,7 +112,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.music.bitchord.ui.haptics.Haptic
 import com.music.bitchord.ui.haptics.rememberHaptics
-import com.music.bitchord.ui.icons.BitChordIcons
+import com.music.bitchord.ui.icons.SilverfyIcons
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.music.bitchord.data.NerdStats
 import com.music.bitchord.data.listentogether.PartyMember
@@ -483,14 +484,27 @@ internal fun TransportRow(
                 )
             }
         } else {
-            TransportGlyph(
-                icon = if (isPlaying) Res.drawable.ic_player_pause else Res.drawable.ic_player_play,
-                contentDescription = stringResource(if (isPlaying) Res.string.pause else Res.string.play),
-                size = playSize,
-                touchSize = playTouch,
-                onClick = onPlayPause,
-                haptic = if (isPlaying) Haptic.Pause else Haptic.Resume,
-            )
+            // Silverfy's own play/pause glyphs, sized to sit level with the skips.
+            val haptics = rememberHaptics()
+            Box(
+                modifier = Modifier
+                    .size(playTouch)
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null,
+                    ) {
+                        haptics.play(if (isPlaying) Haptic.Pause else Haptic.Resume)
+                        onPlayPause()
+                    },
+                contentAlignment = Alignment.Center,
+            ) {
+                SilverfyPlayMark(
+                    isPlaying = isPlaying,
+                    color = Color.White,
+                    contentDescription = stringResource(if (isPlaying) Res.string.pause else Res.string.play),
+                    modifier = Modifier.size(if (compact) 46.dp else 58.dp),
+                )
+            }
         }
         TransportGlyph(
             icon = Res.drawable.ic_player_next,
@@ -600,7 +614,7 @@ internal fun PlayerActionRow(
                 modifier = Modifier.align(Alignment.CenterStart),
             ) {
                 BottomGlyph(
-                    icon = BitChordIcons.LyricsQuote,
+                    icon = SilverfyIcons.LyricsQuote,
                     contentDescription = stringResource(if (lyricsOpen) Res.string.close_lyrics else Res.string.open_lyrics),
                     // Lyrics and the queue are two things to show in one place, so
                     // opening either closes the other; lit to say which is up.
@@ -637,7 +651,7 @@ internal fun PlayerActionRow(
                     // read as one control growing a segment.
                     Pill {
                         PillSegment(
-                            icon = BitChordIcons.Shuffle,
+                            icon = SilverfyIcons.Shuffle,
                             contentDescription = stringResource(
                                 if (shuffleEnabled) Res.string.shuffle_on else Res.string.shuffle_off,
                             ),
@@ -648,7 +662,7 @@ internal fun PlayerActionRow(
                         )
                         PillDivider()
                         PillSegment(
-                            icon = if (repeatMode == RepeatModes.ONE) null else BitChordIcons.Repeat,
+                            icon = if (repeatMode == RepeatModes.ONE) null else SilverfyIcons.Repeat,
                             label = if (repeatMode == RepeatModes.ONE) "1" else null,
                             contentDescription = when (repeatMode) {
                                 RepeatModes.ONE -> stringResource(Res.string.repeat_one)
@@ -669,7 +683,7 @@ internal fun PlayerActionRow(
                         )
                         PillDivider()
                         PillSegment(
-                            icon = BitChordIcons.Infinity,
+                            icon = SilverfyIcons.Infinity,
                             contentDescription = stringResource(
                                 if (autoplayEnabled) Res.string.autoplay_on else Res.string.autoplay_off,
                             ),
@@ -689,7 +703,7 @@ internal fun PlayerActionRow(
             }
             Box(Modifier.align(Alignment.CenterEnd)) {
                 BottomGlyph(
-                    icon = BitChordIcons.Queue,
+                    icon = SilverfyIcons.Queue,
                     contentDescription = stringResource(Res.string.up_next),
                     onClick = onToggleQueue,
                     highlighted = queueOpen,
@@ -706,7 +720,7 @@ internal fun PlayerActionRow(
  * [active] brightens the disc rather than only the glyph: this sits on album
  * artwork of any colour, and a white icon on a white-ish sleeve has no tint
  * change left to make. The filled star carries the state as a shape too —
- * see [BitChordIcons.StarFilled].
+ * see [SilverfyIcons.StarFilled].
  */
 @Composable
 internal fun CircleGlyph(
