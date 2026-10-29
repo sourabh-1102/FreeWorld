@@ -1,0 +1,433 @@
+:root {
+  color-scheme: light dark;
+  --primary: #000000e0;
+  --secondary: #0000008f;
+  --group: #0000000d;
+  --divider: #00000026;
+  --key: #d60017;
+  --key-rgb: 214, 0, 23;
+  --on-key: #ffffff;
+  --bg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #ffffffeb;
+    --secondary: #ffffffa3;
+    --group: #ffffff0d;
+    --divider: #ffffff1a;
+    --key: #fa586a;
+    --key-rgb: 250, 88, 106;
+    --bg: #1f1f1f;
+  }
+}
+
+body {
+  width: 300px;
+  margin: 0;
+  padding: 16px;
+  font: 400 13px / 16px var(--font, 'DM Sans', system-ui, sans-serif);
+  color: var(--primary);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.name {
+  font: 700 17px / 22px var(--font, 'DM Sans', system-ui, sans-serif);
+}
+
+.version {
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+.group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: 10px;
+  background: var(--group);
+  overflow: hidden;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 14px;
+  font-size: 14px;
+}
+
+.row + .row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 0;
+  border-top: 0.5px solid var(--divider);
+}
+
+.value {
+  color: var(--secondary);
+}
+
+.site {
+  display: block;
+  margin-top: 14px;
+  text-align: center;
+  color: var(--key);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.site:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  align-self: center;
+  border-radius: 6px;
+}
+
+.header {
+  gap: 8px;
+}
+
+.version {
+  margin-left: auto;
+}
+
+/* The YouTube Music row, once it has an account: avatar, name and handle, action. */
+.account {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fill, var(--group));
+  object-fit: cover;
+}
+
+.who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.who > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.detail {
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+.action {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--fill, var(--group));
+  color: var(--key);
+  font: 600 12px / 16px var(--font, 'DM Sans', system-ui, sans-serif);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.action:hover {
+  background: var(--divider);
+}
+
+/* Why the account couldn't be read, word for word, so a screenshot says it. */
+.problem {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--secondary);
+  word-break: break-word;
+}
+
+/* The theme picker, under the integrations. */
+.theme {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--group);
+  font-size: 14px;
+}
+
+.theme select {
+  min-width: 0;
+  padding: 3px 6px;
+  border: 0.5px solid var(--divider);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--primary);
+  font: 500 13px / 18px var(--font, 'DM Sans', system-ui, sans-serif);
+  cursor: pointer;
+}
+
+/*
+ * FreeWorld themes (docs/FREEWORLD_THEMES.md, lib/theme.ts): the spec's
+ * colours over this file's variables, on <html data-theme> of the popup,
+ * discord and grant pages. :root plus an attribute outranks the
+ * prefers-color-scheme block, so a theme ignores the system appearance.
+ * Classic sets no attribute. --group is the spec's surface, --fill surface2.
+ */
+:root[data-theme='kawaii'] {
+  color-scheme: light;
+  --bg: #FFF4F8;
+  --group: #FFFFFF;
+  --fill: #FFE3EE;
+  --primary: #4A2B3A;
+  --secondary: #8A6676;
+  --key: #FF5C9D;
+  --key-rgb: 255, 92, 157;
+  --on-key: #FFFFFF;
+  --accent2: #8FD3FF;
+  --divider: #F5CFDD;
+  --font: 'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='cottagecore'] {
+  color-scheme: light;
+  --bg: #F6F1E4;
+  --group: #FFFBF2;
+  --fill: #ECE3CC;
+  --primary: #3B3326;
+  --secondary: #6E6450;
+  --key: #5E8146;
+  --key-rgb: 94, 129, 70;
+  --on-key: #FFFFFF;
+  --accent2: #D98E73;
+  --divider: #DDD2B8;
+  --font: 'Lora', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='coquette'] {
+  color-scheme: light;
+  --bg: #FFF0F3;
+  --group: #FFF9FA;
+  --fill: #F9D9E0;
+  --primary: #5A1E2E;
+  --secondary: #9A5B6B;
+  --key: #B5395B;
+  --key-rgb: 181, 57, 91;
+  --on-key: #FFFFFF;
+  --accent2: #F4B6C2;
+  --divider: #F0CDD5;
+  --font: 'Playfair Display', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='cyberpunk'] {
+  color-scheme: dark;
+  --bg: #0A0A12;
+  --group: #131322;
+  --fill: #1D1D33;
+  --primary: #EAF6FF;
+  --secondary: #8C9BB5;
+  --key: #FCEE0A;
+  --key-rgb: 252, 238, 10;
+  --on-key: #0A0A12;
+  --accent2: #00F0FF;
+  --divider: #2A2A44;
+  --font: 'Rajdhani', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='vaporwave'] {
+  color-scheme: dark;
+  --bg: #1B1035;
+  --group: #261649;
+  --fill: #33205E;
+  --primary: #FDF0FF;
+  --secondary: #C3A8E0;
+  --key: #FF71CE;
+  --key-rgb: 255, 113, 206;
+  --on-key: #1B1035;
+  --accent2: #01CDFE;
+  --divider: #3F2A6E;
+  --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='nineties'] {
+  color-scheme: light;
+  --bg: #FFF8E7;
+  --group: #FFFFFF;
+  --fill: #E9F3FF;
+  --primary: #1E1E3F;
+  --secondary: #55557A;
+  --key: #7B2FF7;
+  --key-rgb: 123, 47, 247;
+  --on-key: #FFFFFF;
+  --accent2: #00B8A0;
+  --divider: #E2DCCB;
+  --font: 'Fredoka', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='minimalist'] {
+  color-scheme: light;
+  --bg: #FAFAFA;
+  --group: #FFFFFF;
+  --fill: #F0F0F0;
+  --primary: #111111;
+  --secondary: #6B6B6B;
+  --key: #111111;
+  --key-rgb: 17, 17, 17;
+  --on-key: #FFFFFF;
+  --accent2: #9A9A9A;
+  --divider: #E6E6E6;
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='indie'] {
+  color-scheme: light;
+  --bg: #FFF6DA;
+  --group: #FFFDF4;
+  --fill: #FCE9B0;
+  --primary: #262017;
+  --secondary: #6B5F45;
+  --key: #F0532F;
+  --key-rgb: 240, 83, 47;
+  --on-key: #FFFFFF;
+  --accent2: #2FA84F;
+  --divider: #EADBA8;
+  --font: 'Rubik', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='boho'] {
+  color-scheme: light;
+  --bg: #F5EBDD;
+  --group: #FBF5EC;
+  --fill: #EBDCC6;
+  --primary: #3E2A1E;
+  --secondary: #7A6250;
+  --key: #B85F37;
+  --key-rgb: 184, 95, 55;
+  --on-key: #FFFFFF;
+  --accent2: #7F8F50;
+  --divider: #E0CFB6;
+  --font: 'Josefin Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='witchcore'] {
+  color-scheme: dark;
+  --bg: #14111A;
+  --group: #1E1926;
+  --fill: #2A2234;
+  --primary: #EDE6F2;
+  --secondary: #A898B5;
+  --key: #D4AF37;
+  --key-rgb: 212, 175, 55;
+  --on-key: #14111A;
+  --accent2: #9B6BD6;
+  --divider: #352C40;
+  --font: 'Cormorant Garamond', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='zodiac'] {
+  color-scheme: dark;
+  --bg: #0B1026;
+  --group: #131A3A;
+  --fill: #1C2550;
+  --primary: #F1EEDD;
+  --secondary: #A9AFCF;
+  --key: #E8C872;
+  --key-rgb: 232, 200, 114;
+  --on-key: #0B1026;
+  --accent2: #8FA8FF;
+  --divider: #283266;
+  --font: 'Marcellus', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root[data-theme='glowwave'] {
+  color-scheme: dark;
+  --bg: #07141A;
+  --group: #0E2129;
+  --fill: #153039;
+  --primary: #E8FFFB;
+  --secondary: #8FC1BA;
+  --key: #4DFFC3;
+  --key-rgb: 77, 255, 195;
+  --on-key: #07141A;
+  --accent2: #FF4DD8;
+  --divider: #1E3E48;
+  --font: 'Exo 2', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Decorative touches (spec), pure CSS. Primary buttons are #allow and #connect. */
+:root[data-theme='nineties'] body {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, var(--key) 16%, transparent) 2.5px, transparent 3px),
+    radial-gradient(circle, color-mix(in srgb, var(--accent2) 18%, transparent) 2px, transparent 2.5px),
+    linear-gradient(135deg, transparent 47%, color-mix(in srgb, var(--accent2) 10%, transparent) 47% 53%, transparent 53%);
+  background-size: 96px 96px, 64px 64px, 150px 150px;
+  background-position: 0 0, 32px 40px, 12px 70px;
+}
+
+:root[data-theme='nineties'] :is(.group, .theme) {
+  border: 2px solid color-mix(in srgb, var(--primary) 85%, transparent);
+}
+
+:root:is([data-theme='cyberpunk'], [data-theme='glowwave']) :is(#allow, #connect) {
+  box-shadow: 0 0 14px rgba(var(--key-rgb), 0.55);
+}
+
+:root[data-theme='vaporwave'] body {
+  background-image: linear-gradient(180deg, var(--bg), #2b1559);
+  background-attachment: fixed;
+}
+
+:root[data-theme='vaporwave'] :is(#allow, #connect) {
+  background-image: linear-gradient(90deg, var(--key), var(--accent2));
+}
+
+:root:is([data-theme='zodiac'], [data-theme='witchcore']) body {
+  background-image:
+    radial-gradient(1px 1px at 24px 36px, color-mix(in srgb, var(--primary) 45%, transparent), transparent),
+    radial-gradient(1px 1px at 132px 84px, color-mix(in srgb, var(--primary) 35%, transparent), transparent),
+    radial-gradient(1.5px 1.5px at 76px 152px, color-mix(in srgb, var(--key) 45%, transparent), transparent),
+    radial-gradient(1px 1px at 180px 190px, color-mix(in srgb, var(--primary) 30%, transparent), transparent),
+    radial-gradient(1.5px 1.5px at 210px 40px, color-mix(in srgb, var(--accent2) 40%, transparent), transparent);
+  background-size: 240px 240px;
+}
+
+:root:is([data-theme='kawaii'], [data-theme='coquette']) :is(.group, .theme) {
+  border-radius: 16px;
+}
+
+:root:is([data-theme='kawaii'], [data-theme='coquette']) :is(#allow, #connect, .action) {
+  border-radius: 1000px;
+}
+
+:root[data-theme='minimalist'] :is(.group, .theme) {
+  border-radius: 4px;
+}
+
+:root[data-theme='minimalist'] :is(#allow, #connect, .action) {
+  border-radius: 4px;
+  box-shadow: none;
+  background-image: none;
+}

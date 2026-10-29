@@ -1,0 +1,10 @@
+<!-- FreeWorld mark: a globe ring holding three equalizer bars. Sits inside the 66dp adaptive-icon safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M28,54A26,26 0 1,1 80,54A26,26 0 1,1 28,54ZM34.71,54A19.29,19.29 0 1,0 73.29,54A19.29,19.29 0 1,0 34.71,54ZM40.581,48.968A3.355,3.355 0 0,1 47.29,48.968L47.29,59.032A3.355,3.355 0 0,1 40.581,59.032ZM50.645,43.935A3.355,3.355 0 0,1 57.355,43.935L57.355,64.065A3.355,3.355 0 0,1 50.645,64.065ZM60.71,47.29A3.355,3.355 0 0,1 67.419,47.29L67.419,60.71A3.355,3.355 0 0,1 60.71,60.71Z"/>
+</vector>

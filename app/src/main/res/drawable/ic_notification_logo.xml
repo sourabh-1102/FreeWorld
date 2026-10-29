@@ -1,0 +1,16 @@
+<!--
+  Status-bar / notification variant of the FreeWorld mark (assets/LogoTransparent.svg).
+
+  Notification small icons are drawn as a silhouette: the system throws away
+  every colour and keeps only the alpha channel, so the fill has to be opaque
+  white, sized to the 22x22 content box Android expects inside a 24x24 canvas.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M1,12A11,11 0 1,1 23,12A11,11 0 1,1 1,12ZM3.839,12A8.161,8.161 0 1,0 20.161,12A8.161,8.161 0 1,0 3.839,12ZM6.323,9.871A1.419,1.419 0 0,1 9.161,9.871L9.161,14.129A1.419,1.419 0 0,1 6.323,14.129ZM10.581,7.742A1.419,1.419 0 0,1 13.419,7.742L13.419,16.258A1.419,1.419 0 0,1 10.581,16.258ZM14.839,9.161A1.419,1.419 0 0,1 17.677,9.161L17.677,14.839A1.419,1.419 0 0,1 14.839,14.839Z"/>
+</vector>
